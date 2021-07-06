@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:24:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/10 15:20:32 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:46:32 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = ft_strlen(s1);
 	ii = ft_strlen(s2);
-	fresh = (char *)malloc(sizeof(*fresh) * (i + ii + 1));
+	fresh = (char *)malloc(sizeof(char) * (i + ii + 1));
 	if (!fresh)
 		return (NULL);
 	i = 0;

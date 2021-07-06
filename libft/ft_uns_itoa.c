@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_uns_itoa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:57:35 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:16:39 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:48:09 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_uns_itoa(unsigned long long n)
 	int		i;
 
 	i = ft_uns_longlong_len(n);
-	string = (char *)malloc(sizeof(*string) * (i + 1));
+	string = (char *)malloc(sizeof(char) * (i + 1));
 	if (!string)
 		return (NULL);
 	ft_bzero(string, i);

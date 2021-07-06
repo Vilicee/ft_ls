@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:29:43 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:12:11 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:46:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmap(char const *str, char (*f)(char))
 	if (!str)
 		return (NULL);
 	ret = ft_strlen(str);
-	map = (char *)malloc(sizeof(*map) * (ret + 1));
+	map = (char *)malloc(sizeof(char) * (ret + 1));
 	if (!map)
 		return (NULL);
 	while (str[i] != '\0')

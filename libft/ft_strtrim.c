@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:43:11 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:16:02 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:48:00 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strtrim(char const *str)
 		end--;
 	if (end == 0)
 		return (sub = ft_strdup(""));
-	sub = (char *)malloc(sizeof(*sub) * (end - i + 1));
+	sub = (char *)malloc(sizeof(char) * (end - i + 1));
 	if (!sub)
 		return (NULL);
 	ii = end - i;

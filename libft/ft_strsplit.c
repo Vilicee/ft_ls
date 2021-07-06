@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:50:47 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:15:13 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:47:36 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_strsplit(char const *str, char c)
 
 	i = 0;
 	words = ft_wordcount(str, c);
-	fresh = (char **)malloc(sizeof(*fresh) * (words + 1));
+	fresh = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!fresh)
 		return (NULL);
 	while (words > 0)

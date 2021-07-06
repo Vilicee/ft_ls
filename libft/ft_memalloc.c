@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:09:51 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 11:59:28 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:43:52 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memalloc(size_t size)
 
 	if (size > 2147483647 || size < 0)
 		return (NULL);
-	str = (void *)malloc(sizeof(*str) * (size + 1));
+	str = malloc(sizeof(void) * (size + 1));
 	if (!str)
 		return (NULL);
 	if (size > 0)

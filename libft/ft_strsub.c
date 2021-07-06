@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:42:50 by wvaara            #+#    #+#             */
-/*   Updated: 2021/02/17 13:37:38 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:47:49 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strsub(char const *str, unsigned int start, size_t len)
 	i = 0;
 	if (!str)
 		return (NULL);
-	sub = (char *)malloc(sizeof(*sub) * (len + 1));
+	sub = (char *)malloc(sizeof(char) * (len + 1));
 	if (sub != NULL)
 	{
 		while (str[start] != '\0' && len > 0)
