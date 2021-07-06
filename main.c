@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 17:01:54 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 11:26:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int	main(int argc, char **argv)
 		ft_no_flags();
 	if (argc >= 2)
 	{
-		while (argv[i] != '\0')
+		while (argv[i] != NULL)
 			if (ft_parse_and_count(argv[i++], &buf, &input) == -1)
 				return (-1);
 		i = ft_reserve_memory(&input, &data);
-		while (argv[i] != '\0')
+		while (argv[i] != NULL)
 			ft_save_all_args(argv[i++], &data, &input);
 		data.i = data.d + data.e + data.f;
 		if (data.i > 0)

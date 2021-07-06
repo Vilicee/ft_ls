@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 17:01:48 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 09:32:51 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_no_flags
 	int				links;
 	int				name;
 	int				gr_int;
-	int				size;
+	long long		size;
 	int				i;
 	int				k;
 	int				kk;
