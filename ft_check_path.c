@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 11:25:58 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 12:42:47 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 13:54:17 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_check_path(char *ptr, char *argv)
 {
 	char	slash;
 	int		i;
-	
+
 	i = 0;
 	slash = '0';
 	if (ft_find_char(ptr, '/') == 1)

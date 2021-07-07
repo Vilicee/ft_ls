@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:49:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 12:50:43 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 13:55:03 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_not_zero(char *arg, t_args *inp, char *ptr, t_input_data *data)
 {
 	struct stat	buf;
-	
+
 	while (arg[inp->i] != '\0')
 		inp->i++;
 	while (arg[inp->i] != '/')
@@ -23,7 +23,7 @@ static void	ft_not_zero(char *arg, t_args *inp, char *ptr, t_input_data *data)
 	inp->store = ptr;
 	free(ptr);
 	ptr = ft_strndup(arg, inp->i);
-	inp->temp_ptr = ft_strcjoin(ptr, '/' ,inp->store);
+	inp->temp_ptr = ft_strcjoin(ptr, '/', inp->store);
 	free(ptr);
 	lstat(inp->temp_ptr, &buf);
 	if (S_ISDIR(buf.st_mode))
@@ -37,7 +37,7 @@ static void	ft_check_link(char *argv, t_input_data *data, t_args *input)
 {
 	char		*ptr;
 	struct stat	buf;
-	
+
 	ptr = (char *)malloc(sizeof(char) * (data->stat_buf.st_size + 1));
 	readlink(argv, ptr, data->stat_buf.st_size + 1);
 	ptr[data->stat_buf.st_size] = '\0';

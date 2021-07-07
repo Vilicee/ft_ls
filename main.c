@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 13:03:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 13:55:08 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 static void	ft_not_zero(char *arg, t_args *inp, char *ptr)
 {
 	struct stat	buf;
-	
+
 	while (arg[inp->i] != '\0')
 		inp->i++;
 	while (arg[inp->i] != '/')
@@ -40,7 +40,7 @@ static void	ft_not_zero(char *arg, t_args *inp, char *ptr)
 	inp->store = ptr;
 	free(ptr);
 	ptr = ft_strndup(arg, inp->i);
-	inp->temp_ptr = ft_strcjoin(ptr, '/' ,inp->store);
+	inp->temp_ptr = ft_strcjoin(ptr, '/', inp->store);
 	free(ptr);
 	lstat(inp->temp_ptr, &buf);
 	if (S_ISDIR(buf.st_mode))
@@ -54,7 +54,7 @@ static void	ft_check_link(char *argv, struct stat *buf, t_args *input)
 {
 	char		*ptr;
 	struct stat	buffer;
-	
+
 	ptr = (char *)malloc(sizeof(char) * (buf->st_size + 1));
 	readlink(argv, ptr, buf->st_size + 1);
 	ptr[buf->st_size] = '\0';
@@ -117,6 +117,5 @@ int	main(int argc, char **argv)
 			ft_organize_args(&data, &input);
 		ft_ls(&data, &input);
 	}
-	system("leaks a.out");
 	return (0);
 }
