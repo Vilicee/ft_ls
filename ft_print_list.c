@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:42:49 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 16:16:02 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 17:12:18 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	ft_print_list(t_no_flags *data, t_args *input, char *path)
 	if (ft_check_stat(temp, input, &stats, path) == -1)
 		return ;
 	free(temp);
-	if (input->l == '1')
+	if (input->l == '1' && data->files > 0)
 		ft_printf("total %d\n", data->total);
 	if (input->r == '1')
 		ft_print_reverse(data, input, path);

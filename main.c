@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 13:55:08 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 17:05:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,12 @@ static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 	if (lstat(argv, buf) != -1)
 	{
 		if (buf->st_mode && S_ISLNK(buf->st_mode))
-			ft_check_link(argv, buf, input);
+		{
+			if (input->l == '1' && !S_ISDIR(buf->st_mode))
+				input->valid_files++;
+			else
+				ft_check_link(argv, buf, input);
+		}
 		else if (buf->st_mode && S_ISDIR(buf->st_mode))
 			input->valid_directories++;
 		else if (buf->st_mode && S_ISREG(buf->st_mode))
