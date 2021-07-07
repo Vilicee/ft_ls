@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 18:33:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/10 15:35:40 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 12:40:18 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int					ft_isascii(int c);
 int					ft_isalnum(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_find_char(char *str, char c);
 int					ft_isprint(int c);
 int					ft_isinf(double nbr);
 int					ft_isdigit(int c);
@@ -77,6 +78,7 @@ int					ft_isnan(double nbr);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_gnl(const int fd, char **line);
+char				*ft_strndup(const char *src, int len);
 char				*ft_itoa(int n);
 char				*ft_uns_itoa(unsigned long long n);
 char				*ft_strrev(char *str);

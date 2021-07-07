@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 12:28:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:59:52 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/06 15:52:43 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <string.h>
 
 typedef struct s_data
 {

@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/06 09:32:51 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 12:12:37 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ typedef struct s_args
 	char			dir_input;
 	char			valid_flag;
 	char			options;
+	char			*temp_ptr;
+	char			*store;
+	int				i;
+	int				checker;
 	int				errors;
 	int				valid_files;
 	int				valid_directories;
@@ -83,6 +87,7 @@ int				ft_ls(t_input_data *data, t_args *input);
 int				ft_capital_r(t_args *input, char *path, char *name);
 int				ft_dots(char *str);
 int				ft_check_rights(t_input_data *data);
+int				ft_check_path(char *ptr, char *argv);
 void			ft_modify_file(char *path, t_input_data *data);
 void			ft_modify_name(char *path, t_no_flags *data);
 void			ft_organize_dirs(t_input_data *data, t_args *input);

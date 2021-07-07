@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+         #
+#    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/08 18:25:08 by wvaara            #+#    #+#              #
-#    Updated: 2021/06/10 15:35:52 by wvaara           ###   ########.fr        #
+#    Updated: 2021/07/07 12:40:28 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS = ft_putnbr.c ft_putchar.c ft_strlen.c ft_putnbr.c ft_putstr.c \
 	ft_lstadd.c ft_lstiter.c ft_lstnew.c ft_lstmap.c ft_linecount.c ft_gnl.c \
 	ft_putaddr.c ft_addr_len.c ft_putlonglong.c ft_uns_longlong_len.c \
 	ft_put_uns_longlong.c ft_uns_itoa.c ft_uns_longlong_len.c ft_isnan.c \
-	ft_isinf.c ft_long_long_len.c ft_isupper.c ft_strcjoin.c
+	ft_isinf.c ft_long_long_len.c ft_isupper.c ft_strcjoin.c ft_strndup.c \
+	ft_find_char.c
 
 LIBRARY = $(SRCS:.c=.o)
 

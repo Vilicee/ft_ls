@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_check_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 10:01:12 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 11:59:42 by wvaara           ###   ########.fr       */
+/*   Created: 2021/07/07 11:25:58 by wvaara            #+#    #+#             */
+/*   Updated: 2021/07/07 12:42:47 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "includes/ft_ls.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t len)
+int	ft_check_path(char *ptr, char *argv)
 {
+	char	slash;
 	int		i;
-	size_t	ret;
-
+	
 	i = 0;
-	ret = 0;
-	if (!dst || !src)
-		return (-1);
-	if (len > 0)
+	slash = '0';
+	if (ft_find_char(ptr, '/') == 1)
+		slash = '1';
+	if (ft_find_char(argv, '/') == 1)
 	{
-		while (src[i] != '\0' && len > 0)
-		{
-			dst[i] = src[i];
-			i++;
-			len--;
-		}
-		dst[i] = '\0';
-		ret = ft_strlen(src);
-		return (ret);
+		if (slash == '1')
+			slash = '2';
+		else
+			slash = '3';
 	}
-	if (len <= 0)
-		ret = ft_strlen(src);
-	return (ret);
+	if (slash == '1')
+		return (0);
+	if (slash == '2')
+		return (0);
+	if (slash == '3')
+		return (-1);
+	return (0);
 }
