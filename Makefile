@@ -6,7 +6,7 @@
 #    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 13:58:33 by wvaara            #+#    #+#              #
-#    Updated: 2021/07/07 11:27:06 by wvaara           ###   ########.fr        #
+#    Updated: 2021/07/07 17:22:51 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,13 @@ NAME = ft_ls
 FLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_file_stat.c main.c ft_no_flags.c ft_parse_args.c \
-	ft_reserve_memory.c ft_save_all_args.c ft_organize_args.c \
-	ft_ls.c ft_capital_r.c ft_print_entries.c \
-	ft_print_list.c ft_mod_time.c ft_print_stats.c ft_order_by_time.c \
-	ft_ascii_order.c ft_dots.c ft_save_entries.c ft_free.c ft_organize_dirs.c \
-	ft_organize_files.c ft_organize_errors.c ft_handle_valid_files.c \
-	ft_handle_directories.c ft_modify_name.c ft_check_rights.c ft_modify_file.c \
-	ft_set_rights.c ft_check_path.c
+	ft_reserve_memory.c ft_save_all_args.c ft_organize_args.c ft_ls.c \
+	ft_capital_r.c ft_print_entries.c ft_print_list.c ft_mod_time.c \
+	ft_print_stats.c ft_order_by_time.c ft_ascii_order.c ft_dots.c \
+	ft_save_entries.c ft_free.c ft_organize_dirs.c ft_organize_files.c \
+	ft_organize_errors.c ft_handle_valid_files.c ft_handle_directories.c \
+	ft_modify_name.c ft_check_rights.c ft_modify_file.c ft_set_rights.c \
+	ft_check_path.c
 
 OBJECTS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 12:12:37 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 17:21:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void			ft_save_hidden_files(t_no_flags *data, t_args *input);
 void			ft_no_flags(void);
 int				ft_parse_args(t_args *input, char *argv);
 void			ft_save_all_args(char *argv, t_input_data *data, t_args *input);
-void			ft_error(int i);
 void			ft_free(t_no_flags *data);
 void			ft_set_rights(t_no_flags *data, struct stat *stats);
 void			ft_organize_args(t_input_data *data, t_args *input);
