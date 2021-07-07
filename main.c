@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 17:05:53 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 19:06:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,28 @@ static void	ft_check_link(char *argv, struct stat *buf, t_args *input)
 
 static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 {
+	char		*temp;
+	struct stat	t_buf;
+	
 	if (lstat(argv, buf) != -1)
 	{
-		if (buf->st_mode && S_ISLNK(buf->st_mode))
+		temp = ft_check_dir_path(argv, input);
+		lstat(temp, &t_buf);
+		if (t_buf.st_mode && S_ISLNK(t_buf.st_mode))
 		{
-			if (input->l == '1' && !S_ISDIR(buf->st_mode))
+			if (input->l == '1' && !S_ISDIR(t_buf.st_mode))
 				input->valid_files++;
 			else
-				ft_check_link(argv, buf, input);
+				ft_check_link(temp, &t_buf, input);
 		}
-		else if (buf->st_mode && S_ISDIR(buf->st_mode))
+		else if (t_buf.st_mode && S_ISDIR(t_buf.st_mode))
 			input->valid_directories++;
-		else if (buf->st_mode && S_ISREG(buf->st_mode))
+		else if (t_buf.st_mode && S_ISREG(t_buf.st_mode))
 			input->valid_files++;
-		else if (buf->st_mode && S_ISCHR(buf->st_mode))
+		else if (t_buf.st_mode && S_ISCHR(t_buf.st_mode))
 			input->valid_files++;
 		input->valid_flag = '1';
+		free(temp);
 	}
 	else
 		if (ft_parse_args(input, argv) == -1)

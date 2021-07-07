@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 17:21:48 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 19:07:00 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int				ft_reserve_memory(t_args *input, t_input_data *data);
 int				ft_ls(t_input_data *data, t_args *input);
 int				ft_capital_r(t_args *input, char *path, char *name);
 int				ft_dots(char *str);
+char			*ft_check_dir_path(char *path, t_args *input);
 int				ft_check_rights(t_input_data *data);
 int				ft_check_path(char *ptr, char *argv);
 void			ft_modify_file(char *path, t_input_data *data);
