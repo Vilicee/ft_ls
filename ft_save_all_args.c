@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:49:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 19:08:20 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/08 13:18:01 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_save_all_args(char *argv, t_input_data *data, t_args *input)
 				ft_check_link(temp, data, input);
 		}
 		else if (t_buf.st_mode && S_ISDIR(t_buf.st_mode))
-			data->dirs[data->d++] = ft_strdup(temp);
+			data->dirs[data->d++] = ft_strdup(argv);
 		else if (t_buf.st_mode && S_ISREG(t_buf.st_mode))
 			data->fil[data->f++] = ft_strdup(temp);
 		else if (t_buf.st_mode && S_ISCHR(t_buf.st_mode))

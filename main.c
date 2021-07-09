@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 19:06:50 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/08 16:21:42 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	data->e = 0;
 	data->f = 0;
 	data->d = 0;
-	data->i = 0;
+	input->argc = 0;
 	input->a = '0';
 	input->i = 0;
 	input->options = '0';
@@ -76,7 +76,8 @@ static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 {
 	char		*temp;
 	struct stat	t_buf;
-	
+
+	temp = NULL;	
 	if (lstat(argv, buf) != -1)
 	{
 		temp = ft_check_dir_path(argv, input);
@@ -123,8 +124,8 @@ int	main(int argc, char **argv)
 		input.i = 0;
 		while (argv[i] != NULL)
 			ft_save_all_args(argv[i++], &data, &input);
-		data.i = data.d + data.e + data.f;
-		if (data.i > 0)
+		input.argc = data.d + data.e + data.f;
+		if (input.argc > 0)
 			ft_organize_args(&data, &input);
 		ft_ls(&data, &input);
 	}

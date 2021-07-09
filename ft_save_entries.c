@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_entries.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:59:34 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 16:41:40 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/08 14:44:32 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ static void	ft_total_blocks(char *name, char *path, t_no_flags *data)
 	struct group	*temp2;
 
 	temp = ft_strcjoin(path, '/', name);
-	lstat(temp, &buf);
+	if (lstat(temp, &buf) == -1)
+	{
+		free(temp);
+		return ;
+	}
 	pwd = getpwuid(buf.st_uid);
 	temp2 = getgrgid(buf.st_gid);
 	if (pwd && data->name < (int)ft_strlen(pwd->pw_name))
@@ -97,7 +101,23 @@ int	ft_save_entries(t_no_flags *data, t_args *input, char *path)
 	{
 		lstat(path, &buf);
 		if (buf.st_mode && S_ISDIR(buf.st_mode))
-			ft_printf("\n%s:\n", path);
+		{
+			if (input->argc > 1 && input->R == '0')
+				ft_printf("ft_ls: : Permission denied\n");
+			else if (input->argc > 1 && input->R == '1')
+				ft_printf("ft_ls: : Permission denied\n", path);
+			else if (input->argc == 1 && input->R == '1')
+			{
+				ft_printf("\n%s:\n", path);
+				input->argc = 0;
+			}
+			else if (input->argc == 0 && input->R == '1')
+				ft_printf("\n%s:\n", path);
+			else
+				ft_putendl("ft_ls: : Permission denied");
+		}
+		else
+			input->argc = 1;
 		return (-1);
 	}
 	closedir(dir);

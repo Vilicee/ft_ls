@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_capital_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:01:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 15:29:02 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/08 14:42:06 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ int	ft_capital_r(t_args *input, char *former, char *latter)
 		temp = ft_strcjoin(former, '/', latter);
 	if (ft_save_entries(&data, input, temp) == -1)
 	{
-		if (temp)
+		if (input->argc == 0)
+			ft_printf("ft_ls: %s: Permission denied\n", latter);
+		if (latter)
 			free(temp);
 		return (-1);
 	}

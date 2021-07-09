@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 19:07:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/07 20:45:59 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_args
 	char			*temp_ptr;
 	char			*store;
 	int				i;
+	int				argc;
 	int				checker;
 	int				errors;
 	int				valid_files;
@@ -72,7 +73,6 @@ typedef struct s_args
 typedef struct s_input_data
 {
 	int				d;
-	int				i;
 	int				e;
 	int				f;
 	struct stat		stat_buf;
