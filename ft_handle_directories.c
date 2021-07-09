@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_directories.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:45:25 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/08 16:29:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 13:54:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static int	ft_check_for_read(t_input_data *data, t_args *input)
 		ft_printf("ft_ls: %s: Permission denied\n", data->dirs[data->d]);
 		return (-1);
 	}
+	closedir(dir);
 	return (0);
 }
 
@@ -57,10 +58,13 @@ static void	ft_reverse(t_no_flags *entries, t_input_data *data, t_args *input)
 		}
 		else
 		{
-			if (ft_check_rights(data) == 0 || input->l == '0')
-				ft_execute(data, entries, input);
-			else if (ft_check_rights(data) == -1 && input->argc > 1)
-				ft_printf("%s:\n", data->dirs[data->d]);
+			if (ft_check_for_read(data, input) == 0)
+			{
+				if (ft_check_rights(data) == 0 || input->l == '0')
+					ft_execute(data, entries, input);
+				else if (ft_check_rights(data) == -1 && input->argc > 1)
+					ft_printf("%s:\n", data->dirs[data->d]);
+			}
 		}
 		if (data->d > 0)
 			write(1, "\n", 1);

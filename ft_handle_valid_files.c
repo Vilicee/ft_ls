@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_valid_files.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:39:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 09:28:44 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:51:34 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@ static void	ft_reverse(t_input_data *data, t_args *input)
 
 	data->f = input->valid_files - 1;
 	ls_data.name = 0;
+	ls_data.links = 0;
+	ls_data.size = 0;
+	ls_data.gr_int = 0;
 	while (data->f >= 0)
 	{
 		if (input->l == '1')
 			ft_file_stat(data->fil[data->f], &ls_data);
+		if (ls_data.l == '1')
+			ft_modify_file(data->fil[data->f], data);
 		ft_printf("%s ", data->fil[data->f]);
 		if (input->l == '1' && data->f != 0)
 			write(1, "\n", 1);
@@ -33,7 +38,6 @@ static void	ft_normal(t_input_data *data, t_args *input)
 {
 	t_no_flags	ls_data;
 
-	data->f = 0;
 	ls_data.name = 0;
 	ls_data.links = 0;
 	ls_data.size = 0;
@@ -53,6 +57,7 @@ static void	ft_normal(t_input_data *data, t_args *input)
 
 void	ft_handle_valid_files(t_input_data *data, t_args *input)
 {	
+	data->f = 0;
 	if (input->r == '1')
 		ft_reverse(data, input);
 	else

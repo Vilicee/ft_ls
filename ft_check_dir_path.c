@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_dir_path.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 18:29:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/08 16:19:01 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 14:04:57 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,24 @@ char	*ft_check_dir_path(char *path, t_args *input)
 {
 	char		*temp;
 	struct stat	temp_buf;
-	int			i;
-	DIR			*dir;
 
-	i = 0;
-	while (path[i] != '\0')
-		i++;
-	if (path[i - 1] != '/')
+	input->index = ft_strlen(path);
+	if (path[input->index - 1] != '/' && ft_verify_name(path) == -1)
 	{
-		if (ft_verify_name(path) == -1)
+		temp = ft_strjoin(path, "/");
+		lstat(temp, &temp_buf);
+		if (S_ISDIR(temp_buf.st_mode) && input->l == '0')
 		{
-			temp = ft_strjoin(path, "/");
-			lstat(temp, &temp_buf);
-			if (S_ISDIR(temp_buf.st_mode) && input->l == '0')
+			input->temp_dir = opendir(temp);
+			if (input->temp_dir)
 			{
-				dir = opendir(temp);
-				if (dir)
-				{
-					closedir(dir);
-					return (temp);
-				}
+				closedir(input->temp_dir);
+				return (temp);
 			}
-			else
-				free(temp);
+			free(temp);
 		}
+		else
+			free(temp);
 	}
 	temp = ft_strdup(path);
 	return (temp);

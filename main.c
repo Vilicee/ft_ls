@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/08 16:21:42 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:43:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,80 +24,41 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	input->argc = 0;
 	input->a = '0';
 	input->i = 0;
+	input->file = '0';
+	input->index = 0;
 	input->options = '0';
 	input->l = '0';
 	input->dir_input = '0';
 }
 
-static void	ft_not_zero(char *arg, t_args *inp, char *ptr)
+static void	ft_lstat_true(char *argv, t_args *input)
 {
-	struct stat	buf;
+	struct stat	t_buf;
+	char		*temp;
 
-	while (arg[inp->i] != '\0')
-		inp->i++;
-	while (arg[inp->i] != '/')
-		inp->i--;
-	inp->store = ptr;
-	free(ptr);
-	ptr = ft_strndup(arg, inp->i);
-	inp->temp_ptr = ft_strcjoin(ptr, '/', inp->store);
-	free(ptr);
-	lstat(inp->temp_ptr, &buf);
-	if (S_ISDIR(buf.st_mode))
-		inp->valid_directories++;
-	else
-		inp->valid_directories++;
-	free(inp->temp_ptr);
-}
-
-static void	ft_check_link(char *argv, struct stat *buf, t_args *input)
-{
-	char		*ptr;
-	struct stat	buffer;
-
-	ptr = (char *)malloc(sizeof(char) * (buf->st_size + 1));
-	readlink(argv, ptr, buf->st_size + 1);
-	ptr[buf->st_size] = '\0';
-	input->checker = ft_check_path(ptr, argv);
-	if (input->checker == 0)
+	temp = ft_check_dir_path(argv, input);
+	lstat(temp, &t_buf);
+	if (t_buf.st_mode && S_ISLNK(t_buf.st_mode))
 	{
-		lstat(ptr, &buffer);
-		if (S_ISDIR(buffer.st_mode))
-			input->valid_directories++;
-		else
+		if (input->l == '1' && !S_ISDIR(t_buf.st_mode))
 			input->valid_files++;
-		free(ptr);
+		else
+			ft_check_link(temp, &t_buf, input);
 	}
-	else
-		ft_not_zero(argv, input, ptr);
+	else if (t_buf.st_mode && S_ISDIR(t_buf.st_mode))
+		input->valid_directories++;
+	else if (t_buf.st_mode && S_ISREG(t_buf.st_mode))
+		input->valid_files++;
+	else if (t_buf.st_mode && S_ISCHR(t_buf.st_mode))
+		input->valid_files++;
+	input->valid_flag = '1';
+	free(temp);
 }
 
 static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
-{
-	char		*temp;
-	struct stat	t_buf;
-
-	temp = NULL;	
+{	
 	if (lstat(argv, buf) != -1)
-	{
-		temp = ft_check_dir_path(argv, input);
-		lstat(temp, &t_buf);
-		if (t_buf.st_mode && S_ISLNK(t_buf.st_mode))
-		{
-			if (input->l == '1' && !S_ISDIR(t_buf.st_mode))
-				input->valid_files++;
-			else
-				ft_check_link(temp, &t_buf, input);
-		}
-		else if (t_buf.st_mode && S_ISDIR(t_buf.st_mode))
-			input->valid_directories++;
-		else if (t_buf.st_mode && S_ISREG(t_buf.st_mode))
-			input->valid_files++;
-		else if (t_buf.st_mode && S_ISCHR(t_buf.st_mode))
-			input->valid_files++;
-		input->valid_flag = '1';
-		free(temp);
-	}
+		ft_lstat_true(argv, input);
 	else
 		if (ft_parse_args(input, argv) == -1)
 			return (-1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_capital_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:01:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/08 14:42:06 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:29:10 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,17 @@ static void	ft_normal(t_args *input, t_no_flags *data, char *temp)
 	}
 }
 
+static void	ft_print_out(t_args *inp, t_no_flags *dt, char *temp, char *path)
+{
+	if (inp->r == '1')
+		ft_rev(inp, dt, temp);
+	else
+		ft_normal(inp, dt, temp);
+	if (path)
+		free(temp);
+	ft_free(dt);
+}
+
 int	ft_capital_r(t_args *input, char *former, char *latter)
 {	
 	t_no_flags	data;
@@ -82,8 +93,10 @@ int	ft_capital_r(t_args *input, char *former, char *latter)
 		temp = ft_strcjoin(former, '/', latter);
 	if (ft_save_entries(&data, input, temp) == -1)
 	{
-		if (input->argc == 0)
+		if (input->argc == 0 && input->l == '0')
 			ft_printf("ft_ls: %s: Permission denied\n", latter);
+		if (input->file == '1' && input->l == '0')
+			ft_printf("ft_ls: %s: Permission denied\n", former);
 		if (latter)
 			free(temp);
 		return (-1);
@@ -91,12 +104,6 @@ int	ft_capital_r(t_args *input, char *former, char *latter)
 	if (latter)
 		ft_printf("\n%s:\n", temp);
 	ft_print_directory(&data, input, temp);
-	if (input->r == '1')
-		ft_rev(input, &data, temp);
-	else
-		ft_normal(input, &data, temp);
-	if (latter)
-		free(temp);
-	ft_free(&data);
+	ft_print_out(input, &data, temp, latter);
 	return (0);
 }

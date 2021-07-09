@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_all_args.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:49:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/08 13:18:01 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:39:10 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	ft_not_zero(char *arg, t_args *inp, char *ptr, t_input_data *data)
 	free(inp->temp_ptr);
 }
 
-static void	ft_check_link(char *argv, t_input_data *data, t_args *input)
+static void	ft_check_links(char *argv, t_input_data *data, t_args *input)
 {
 	char		*ptr;
 	struct stat	buf;
@@ -69,7 +69,7 @@ void	ft_save_all_args(char *argv, t_input_data *data, t_args *input)
 			if (input->l == '1' && !S_ISDIR(t_buf.st_mode))
 				data->fil[data->f++] = ft_strdup(temp);
 			else
-				ft_check_link(temp, data, input);
+				ft_check_links(temp, data, input);
 		}
 		else if (t_buf.st_mode && S_ISDIR(t_buf.st_mode))
 			data->dirs[data->d++] = ft_strdup(argv);
@@ -80,10 +80,5 @@ void	ft_save_all_args(char *argv, t_input_data *data, t_args *input)
 		free(temp);
 	}
 	else
-	{
-		data->err[data->e] = ft_strdup(argv);
-		data->e++;
-	}
-	if (input->a == '0')
-		return ;
+		data->err[data->e++] = ft_strdup(argv);
 }

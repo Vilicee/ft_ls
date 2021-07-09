@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 20:45:59 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:33:58 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ typedef struct s_args
 	char			options;
 	char			*temp_ptr;
 	char			*store;
+	char			*temp;
+	char			file;
+	int				index;
 	int				i;
 	int				argc;
 	int				checker;
@@ -68,6 +71,7 @@ typedef struct s_args
 	int				valid_files;
 	int				valid_directories;
 	struct stat		stats;
+	DIR				*temp_dir;
 }					t_args;
 
 typedef struct s_input_data
@@ -89,6 +93,8 @@ int				ft_dots(char *str);
 char			*ft_check_dir_path(char *path, t_args *input);
 int				ft_check_rights(t_input_data *data);
 int				ft_check_path(char *ptr, char *argv);
+void			ft_check_link(char *argv, struct stat *buf, t_args *input);
+void			ft_parse_output(char *path, struct stat *buf, t_args *input);
 void			ft_modify_file(char *path, t_input_data *data);
 void			ft_modify_name(char *path, t_no_flags *data);
 void			ft_organize_dirs(t_input_data *data, t_args *input);
