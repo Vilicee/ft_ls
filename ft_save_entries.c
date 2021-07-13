@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_entries.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:59:34 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/09 13:23:15 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/13 16:41:51 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	ft_total_blocks(char *name, char *path, t_no_flags *data)
 	temp2 = getgrgid(buf.st_gid);
 	if (pwd && data->name < (int)ft_strlen(pwd->pw_name))
 		data->name = ft_strlen(pwd->pw_name);
-	if (data->gr_int < (int)ft_strlen(temp2->gr_name))
+	if (temp2 && data->gr_int < (int)ft_strlen(temp2->gr_name))
 		data->gr_int = ft_strlen(temp2->gr_name);
 	data->total = data->total + buf.st_blocks;
 	if (data->links < buf.st_nlink)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:34:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/02 14:52:55 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/13 16:36:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	ft_parse_options(t_args *input, char *argv, int i)
 			input->t = '1';
 		else
 		{
-			ft_printf("ls :illegal option -- %c\n", argv[i]);
-			ft_printf("Usage: ls [-Rralt] [file ...]\n");
+			ft_printf("ft_ls: illegal option -- %c\n", argv[i]);
+			ft_printf("usage: ./ft_ls [-Rralt] [file ...]\n");
 			return (-1);
 		}
 		input->options = '1';
