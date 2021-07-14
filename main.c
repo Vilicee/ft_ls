@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 16:41:03 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:18:19 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	input->argc = 0;
 	input->a = '0';
 	input->i = 0;
+	input->dash_input = 0;
 	input->file = '0';
 	input->index = 0;
 	input->options = '0';
@@ -82,6 +83,7 @@ int	main(int argc, char **argv)
 			if (ft_parse_and_count(argv[i++], &buf, &input) == -1)
 				return (-1);
 		i = ft_reserve_memory(&input, &data);
+		i = i + input.dash_input - 1;
 		input.i = 0;
 		while (argv[i] != NULL)
 			ft_save_all_args(argv[i++], &data, &input);

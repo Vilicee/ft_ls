@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:34:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:05:37 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:17:38 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int	ft_parse_options(t_args *input, char *argv, int i)
 			return (-1);
 		}
 		input->options = '1';
+		input->dash_input++;
 		i++;
 	}
 	return (0);
@@ -42,7 +43,7 @@ int	ft_parse_args(t_args *input, char *argv)
 {
 	if (argv[0] == '-')
 	{
-		if (input->valid_flag != '1' && input->options != '1')
+		if (input->valid_flag != '1')
 		{
 			if (ft_parse_options(input, argv, 1) == -1)
 				return (-1);

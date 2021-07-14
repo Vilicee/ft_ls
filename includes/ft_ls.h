@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 14:37:29 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:17:14 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_args
 	char			*store;
 	char			*temp;
 	char			file;
+	int				dash_input;
 	int				index;
 	int				i;
 	int				argc;
