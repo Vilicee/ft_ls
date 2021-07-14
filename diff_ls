@@ -1,0 +1,47 @@
+1,8c1,3
+< ft_ls: aggrgr: No such file or directory
+< ft_ls: asfass: No such file or directory
+< ft_ls: fasf: No such file or directory
+< ft_ls: qq: No such file or directory
+< ft_ls: wewwew: No such file or directory
+< -rw-r--r--  1 wvaara  2020 1487 Jul 14 14:13 ft_file_stat.c 
+< -rw-r--r--  1 wvaara  2020 2255 Jul 14 12:13 ft_ls.c 
+< -rw-r--r--  1 wvaara  2020 2681 Jul 14 16:41 main.c 
+---
+> -rw-r--r--  1 wvaara  2020  1487 Jul 14 14:13 ft_file_stat.c
+> -rw-r--r--  1 wvaara  2020  2255 Jul 14 12:13 ft_ls.c
+> -rw-r--r--  1 wvaara  2020  2681 Jul 14 16:41 main.c
+15c10
+< drwx------    6 wvaara  2020      204 May 31 09:55 Downloads
+---
+> drwx------+   6 wvaara  2020      204 May 31 09:55 Downloads
+18c13
+< drwx------    3 wvaara  2020      102 Sep  3  2020 Movies
+---
+> drwx------+   3 wvaara  2020      102 Sep  3  2020 Movies
+24c19
+< drwx------    3 wvaara  2020      102 Sep  3  2020 Pictures
+---
+> drwx------+   3 wvaara  2020      102 Sep  3  2020 Pictures
+4215c4210
+< -rw-r--r--  1 wvaara  2020  78598 Jul 14 17:00 2-Git.log
+---
+> -rw-r--r--  1 wvaara  2020  78930 Jul 14 17:00 2-Git.log
+33587c33582
+< -rw-r--r--    1 wvaara  2020  2171983 Jul 14 17:01 fake_ls
+---
+> -rw-r--r--    1 wvaara  2020  2331694 Jul 14 17:01 fake_ls
+33654c33649
+< -rw-r--r--    1 wvaara  2020  2328005 Jul 14 16:59 real_ls
+---
+> -rw-r--r--    1 wvaara  2020  2170880 Jul 14 17:01 real_ls
+35230d35224
+< ft_ls: noread: Permission denied
+35548d35541
+< ft_ls: noread_dir: Permission denied
+35972a35966,35967
+> 
+> libft:
+36228a36224,36225
+> 
+> libft:
