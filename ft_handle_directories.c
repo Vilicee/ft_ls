@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:45:25 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/09 13:54:48 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 15:53:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ static void	ft_normal(t_no_flags *entries, t_input_data *data, t_args *arg)
 					ft_printf("%s:\n", data->dirs[data->d]);
 			}
 		}
-		if (data->d < arg->valid_directories - 1)
-			write(1, "\n", 1);
+//		if (data->d < arg->valid_directories - 1)
+//			write(1, "\n", 1);
 		data->d++;
 	}
 }
