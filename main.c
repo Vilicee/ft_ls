@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:22:51 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:38:03 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int	main(int argc, char **argv)
 			if (ft_parse_and_count(argv[i++], &buf, &input) == -1)
 				return (-1);
 		i = ft_reserve_memory(&input, &data);
-		ft_printf("i is %d\n", i);
 		input.i = 0;
 		while (argv[i] != NULL)
 			ft_save_all_args(argv[i++], &data, &input);
