@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/09 15:33:58 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 14:37:29 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_no_flags
 	char			extend;
 	int				total;
 	int				links;
+	int				len;
+	int				s_l;
 	int				name;
 	int				gr_int;
 	long long		size;
