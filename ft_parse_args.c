@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:34:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/13 16:36:50 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:05:37 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_parse_args(t_args *input, char *argv)
 {
 	if (argv[0] == '-')
 	{
-		if (input->valid_flag != '1')
+		if (input->valid_flag != '1' && input->options != '1')
 		{
 			if (ft_parse_options(input, argv, 1) == -1)
 				return (-1);
