@@ -6,7 +6,7 @@
 #    By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 13:58:33 by wvaara            #+#    #+#              #
-#    Updated: 2021/07/09 15:34:09 by wvaara           ###   ########.fr        #
+#    Updated: 2021/07/14 17:30:25 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = ft_file_stat.c main.c ft_no_flags.c ft_parse_args.c \
 	ft_save_entries.c ft_free.c ft_organize_dirs.c ft_organize_files.c \
 	ft_organize_errors.c ft_handle_valid_files.c ft_handle_directories.c \
 	ft_modify_name.c ft_check_rights.c ft_modify_file.c ft_set_rights.c \
-	ft_check_path.c ft_check_dir_path.c ft_parse_output.c ft_check_link.c
+	ft_check_path.c ft_check_dir_path.c ft_parse_output.c ft_check_link.c \
+	ft_parse_rec_output.c
 
 OBJECTS = $(SRCS:.c=.o)
 

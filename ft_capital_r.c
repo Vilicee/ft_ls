@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:01:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 16:59:24 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:29:39 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,7 @@ int	ft_capital_r(t_args *input, char *former, char *latter)
 			temp = ft_strcjoin(former, '/', latter);
 	}
 	if (ft_save_entries(&data, input, temp) == -1)
-	{
-		if (input->argc == 0)
-			ft_printf("ft_ls: %s: Permission denied\n", latter);
-		if (input->file == '1' && input->l == '0')
-			ft_printf("ft_ls: %s: Permission denied\n", former);
-		if (latter)
-			free(temp);
-		return (-1);
-	}
+		return (ft_parse_rec_output(input, latter, former, temp));
 	if (latter)
 		ft_printf("\n%s:\n", temp);
 	ft_print_directory(&data, input, temp);

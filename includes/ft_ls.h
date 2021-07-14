@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:17:14 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:34:26 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ typedef struct s_input_data
 }					t_input_data;
 
 int				ft_file_stat(char *file, t_no_flags *data);
+int				ft_parse_rec_output(t_args *input, char *latter, char *former,
+					char *temp);
 int				ft_reserve_memory(t_args *input, t_input_data *data);
 int				ft_ls(t_input_data *data, t_args *input);
 int				ft_capital_r(t_args *input, char *path, char *name);

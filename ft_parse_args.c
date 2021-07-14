@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:34:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:17:38 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:24:17 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static int	ft_parse_options(t_args *input, char *argv, int i)
 			return (-1);
 		}
 		input->options = '1';
-		input->dash_input++;
 		i++;
 	}
+	input->dash_input++;
 	return (0);
 }
 

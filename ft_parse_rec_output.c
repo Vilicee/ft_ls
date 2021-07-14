@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_organize_errors.c                               :+:      :+:    :+:   */
+/*   ft_parse_rec_output.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 15:10:28 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:31:18 by wvaara           ###   ########.fr       */
+/*   Created: 2021/07/14 17:28:25 by wvaara            #+#    #+#             */
+/*   Updated: 2021/07/14 17:30:51 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_ls.h"
 
-void	ft_organize_errors(t_input_data *data, t_args *input)
+int	ft_parse_rec_output(t_args *input, char *latter, char *former, char *temp)
 {
-	char	*temp;
-
-	while (data->e < input->errors - 1)
-	{
-		if (ft_strcmp(data->err[data->e], data->err[data->e + 1]) > 0)
-		{
-			temp = data->err[data->e + 1];
-			data->err[data->e + 1] = data->err[data->e];
-			data->err[data->e] = temp;
-			data->e = 0;
-		}
-		else
-			data->e++;
-	}
+	if (input->argc == 0)
+		ft_printf("ft_ls: %s: Permission denied\n", latter);
+	if (input->file == '1' && input->l == '0')
+		ft_printf("ft_ls: %s: Permission denied\n", former);
+	if (latter)
+		free(temp);
+	return (-1);
 }
