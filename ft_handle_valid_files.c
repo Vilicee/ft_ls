@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:39:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/09 15:51:34 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/15 14:05:13 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	ft_reverse(t_input_data *data, t_args *input)
 			ft_file_stat(data->fil[data->f], &ls_data);
 		if (ls_data.l == '1')
 			ft_modify_file(data->fil[data->f], data);
-		ft_printf("%s ", data->fil[data->f]);
-		if (input->l == '1' && data->f != 0)
+		ft_printf("%s", data->fil[data->f]);
+		if (data->f != 0)
 			write(1, "\n", 1);
 		data->f--;
 	}
@@ -48,8 +48,8 @@ static void	ft_normal(t_input_data *data, t_args *input)
 			ft_file_stat(data->fil[data->f], &ls_data);
 		if (ls_data.l == '1')
 			ft_modify_file(data->fil[data->f], data);
-		ft_printf("%s ", data->fil[data->f]);
-		if (input->l == '1' && data->f < input->valid_files - 1)
+		ft_printf("%s", data->fil[data->f]);
+		if (data->f < input->valid_files - 1)
 			write(1, "\n", 1);
 		data->f++;
 	}
