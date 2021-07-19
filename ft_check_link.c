@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:32:30 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 12:29:38 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 17:23:14 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	ft_check_link(char *argv, struct stat *buf, t_args *input)
 
 	ptr = (char *)malloc(sizeof(char) * (buf->st_size + 1));
 	if (readlink(argv, ptr, buf->st_size + 1) == -1)
-		ft_printf("THIS READLINK FAILS\n");
+	{
+		ft_printf("Readlink error\n");
+		return ;
+	}
 	ptr[buf->st_size] = '\0';
 	input->checker = ft_check_path(ptr, argv);
 	if (input->checker == 0)
