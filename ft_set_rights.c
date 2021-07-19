@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 15:46:09 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 15:48:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:10:22 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static void	ft_part_two(t_no_flags *data, struct stat *stats)
 void	ft_set_rights(t_no_flags *data, struct stat *stats)
 {
 	data->rights = (char *)malloc(sizeof(char) * 12);
+	if (!data->rights)
+		return ;
 	data->rights = ft_memset(data->rights, '-', 10);
 	ft_part_one(data, stats);
 	ft_part_two(data, stats);

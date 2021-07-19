@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:59:34 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 14:12:10 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:09:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ static void	ft_total_blocks(char *name, char *path, t_no_flags *data)
 	pwd = getpwuid(buf.st_uid);
 	temp2 = getgrgid(buf.st_gid);
 	if (pwd && data->name < (int)ft_strlen(pwd->pw_name))
-		data->name = ft_strlen(pwd->pw_name);
+		data->name = (int)ft_strlen(pwd->pw_name);
 	if (temp2 && data->gr_int < (int)ft_strlen(temp2->gr_name))
-		data->gr_int = ft_strlen(temp2->gr_name);
+		data->gr_int = (int)ft_strlen(temp2->gr_name);
 	data->total = data->total + buf.st_blocks;
 	if (data->links < buf.st_nlink)
-		data->links = buf.st_nlink;
+		data->links = (int)buf.st_nlink;
 	if (data->size < buf.st_size)
 		data->size = buf.st_size;
 	free(temp);
@@ -105,6 +105,8 @@ int	ft_save_entries(t_no_flags *data, t_args *input, char *path)
 	}
 	closedir(dir);
 	ft_set_values(data, path, input);
+	if (!data->entry)
+		return (-1);
 	ft_save(path, input, data);
 	return (0);
 }

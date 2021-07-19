@@ -6,12 +6,13 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 17:34:26 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:54:41 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LS_H
 # define FT_LS_H
+# define SIX_MONTHS 15780000
 # include "../libft/includes/libft.h"
 # include "../libft/ft_printf/includes/ft_printf.h"
 # include <sys/stat.h>
@@ -28,8 +29,8 @@ typedef struct s_no_flags
 	DIR				*dir;
 	struct passwd	*pwd;
 	struct group	*group;
-	time_t			now;
-	time_t			then;
+	time_t			m1;
+	time_t			m2;
 	int				files;
 	char			*rights;
 	char			month[4];

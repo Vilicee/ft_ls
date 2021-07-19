@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:10:22 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 16:55:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:08:49 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_count_entries(void)
 	return (ret);
 }
 
-static void	ft_save_ent(t_no_flags *data)
+static int	ft_save_ent(t_no_flags *data)
 {
 	struct dirent	*temp;
 
@@ -40,6 +40,11 @@ static void	ft_save_ent(t_no_flags *data)
 	data->files = ft_count_entries();
 	data->entry = (char **)(malloc(sizeof(char *)
 				* (data->files + 1)));
+	if (!data->entry)
+	{
+		ft_printf("Malloc error, try again\n");
+		return (-1);
+	}
 	while (data->i < data->files)
 	{
 		temp = readdir(data->dir);
@@ -51,6 +56,7 @@ static void	ft_save_ent(t_no_flags *data)
 	}
 	data->entry[data->i] = NULL;
 	closedir(data->dir);
+	return (0);
 }
 
 static void	ft_print(t_no_flags *data)
@@ -68,7 +74,8 @@ void	ft_no_flags(void)
 {
 	t_no_flags	data;
 
-	ft_save_ent(&data);
+	if (ft_save_ent(&data) == -1)
+		return ;
 	ft_ascii_order(&data);
 	ft_print(&data);
 }
