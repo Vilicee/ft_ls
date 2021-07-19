@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:10:22 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 13:08:49 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 14:12:00 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_save_ent(t_no_flags *data)
 		temp = readdir(data->dir);
 		if (temp->d_name[0] != '.')
 		{
-			data->entry[data->i] = temp->d_name;
+			data->entry[data->i] = ft_strdup(temp->d_name);
 			data->i++;
 		}
 	}
@@ -65,6 +65,7 @@ static void	ft_print(t_no_flags *data)
 	while (data->i < data->files)
 	{
 		ft_printf("%s\n", data->entry[data->i]);
+		free(data->entry[data->i]);
 		data->i++;
 	}
 	free(data->entry);
