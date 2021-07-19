@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 16:17:41 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 16:42:24 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_ls.h"
 
-static void	ft_initialize_variables(t_args *input, t_input_data *data)
+static void	ft_initialize_variables(t_args *input, t_input_data *data, int ar)
 {
 	input->valid_flag = '0';
 	input->errors = 0;
@@ -22,6 +22,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	data->f = 0;
 	data->d = 0;
 	input->argc = 0;
+	input->ar = ar;
 	input->a = '0';
 	input->check_dash = '0';
 	input->i = 0;
@@ -88,6 +89,8 @@ static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 				input->options = '1';
 				input->dash_input++;
 			}
+			else if (input->options == '1' && input->dash_input == 1)
+				input->dash_input++;
 			else
 				input->errors++;
 		}	
@@ -109,7 +112,7 @@ int	main(int argc, char **argv)
 	struct stat		buf;
 
 	i = 1;
-	ft_initialize_variables(&input, &data);
+	ft_initialize_variables(&input, &data, argc);
 	if (argc == 1)
 		ft_no_flags();
 	if (argc >= 2)
