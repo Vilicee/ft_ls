@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 14:05:11 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:54:41 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,35 @@
 
 typedef struct s_no_flags
 {
+	char			**entry;
 	DIR				*dir;
 	struct passwd	*pwd;
 	struct group	*group;
 	time_t			m1;
 	time_t			m2;
-	long long		size;
-	char			hour_min[6];
-	char			year[5];
+	int				files;
+	char			*rights;
 	char			month[4];
 	char			date[3];
-	int				files;
+	char			hour_min[6];
+	char			year[5];
+	char			old;
+	char			l;
+	char			extend;
 	int				total;
 	int				links;
 	int				len;
 	int				s_l;
 	int				name;
 	int				gr_int;
+	long long		size;
 	int				i;
 	int				k;
 	int				kk;
-	char			**entry;
-	char			*rights;
-	char			old;
-	char			l;
-	char			extend;
 }					t_no_flags;
 
 typedef struct s_args
 {
-	struct stat		stats;
-	DIR				*temp_dir;
-	int				dash_input;
-	int				index;
-	int				i;
-	int				argc;
-	int				checker;
-	int				errors;
-	int				valid_files;
-	int				valid_directories;
 	char			R;
 	char			l;
 	char			a;
@@ -76,14 +66,24 @@ typedef struct s_args
 	char			*store;
 	char			*temp;
 	char			file;
+	int				dash_input;
+	int				index;
+	int				i;
+	int				argc;
+	int				checker;
+	int				errors;
+	int				valid_files;
+	int				valid_directories;
+	struct stat		stats;
+	DIR				*temp_dir;
 }					t_args;
 
 typedef struct s_input_data
 {
-	struct stat		stat_buf;
 	int				d;
 	int				e;
 	int				f;
+	struct stat		stat_buf;
 	char			**fil;
 	char			**dirs;
 	char			**err;
