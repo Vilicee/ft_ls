@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 16:42:24 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 17:09:55 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,19 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data, int ar)
 
 static int	ft_check_contents(char *argv)
 {
-	int	i;
+	int		i;
+	char	check;
 
 	i = 0;
+	check = '0';
 	while (argv[i])
 	{
 		if (argv[i] != '-')
-			return (0);
+			check = '1';
 		i++;
 	}
-	if (i <= 2)
-		return (-1);
+	if (i <= 2 && check == '0')
+		return (i);
 	return (0);
 }
 
@@ -77,18 +79,15 @@ static void	ft_lstat_true(char *argv, t_args *input)
 static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 {	
 	input->ret = ft_check_contents(argv);
-	if (input->ret == -1)
+	if (input->ret != 0)
 	{
 		input->check_dash = '1';
-		if (ft_strlen(argv) == 1)
+		if (input->ret == 1)
 			input->errors++;
-		if (argv[1] == '-' && ft_strlen(argv) == 2)
+		if (input->ret == 2)
 		{
-			if (input->options == '0')
-			{
-				input->options = '1';
+			if (input->options == '0' && input->dash_input == 0)
 				input->dash_input++;
-			}
 			else if (input->options == '1' && input->dash_input == 1)
 				input->dash_input++;
 			else
