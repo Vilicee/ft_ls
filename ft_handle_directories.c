@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:45:25 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/14 16:33:43 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 15:28:18 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ static void	ft_reverse(t_no_flags *entries, t_input_data *data, t_args *input)
 			if (input->argc > 1)
 				ft_printf("%s:\n", data->dirs[data->d]);
 			ft_capital_r(input, data->dirs[data->d], NULL);
-			if (input->argc > 1 && data->d != 0)
-				write(1, "\n", 1);
 		}
 		else
 		{
@@ -66,7 +64,7 @@ static void	ft_reverse(t_no_flags *entries, t_input_data *data, t_args *input)
 					ft_printf("%s:\n", data->dirs[data->d]);
 			}
 		}
-		if (data->d > 0)
+		if (input->argc > 1 && data->d != 0)
 			write(1, "\n", 1);
 		data->d--;
 	}
@@ -81,8 +79,6 @@ static void	ft_normal(t_no_flags *entries, t_input_data *data, t_args *arg)
 			if (arg->argc > 1)
 				ft_printf("%s:\n", data->dirs[data->d]);
 			ft_capital_r(arg, data->dirs[data->d], NULL);
-			if (arg->argc > 1 && data->d != arg->valid_directories - 1)
-				write(1, "\n", 1);
 		}
 		else
 		{
@@ -94,6 +90,8 @@ static void	ft_normal(t_no_flags *entries, t_input_data *data, t_args *arg)
 					ft_printf("%s:\n", data->dirs[data->d]);
 			}
 		}
+		if (arg->argc > 1 && data->d != arg->valid_directories - 1)
+			write(1, "\n", 1);
 		data->d++;
 	}
 }

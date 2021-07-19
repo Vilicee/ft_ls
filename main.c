@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 14:21:23 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 16:17:41 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	data->d = 0;
 	input->argc = 0;
 	input->a = '0';
+	input->check_dash = '0';
 	input->i = 0;
 	input->dash_input = 0;
 	input->file = '0';
@@ -30,6 +31,22 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data)
 	input->options = '0';
 	input->l = '0';
 	input->dir_input = '0';
+}
+
+static int	ft_check_contents(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i] != '-')
+			return (0);
+		i++;
+	}
+	if (i <= 2)
+		return (-1);
+	return (0);
 }
 
 static void	ft_lstat_true(char *argv, t_args *input)
@@ -58,6 +75,24 @@ static void	ft_lstat_true(char *argv, t_args *input)
 
 static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 {	
+	input->ret = ft_check_contents(argv);
+	if (input->ret == -1)
+	{
+		input->check_dash = '1';
+		if (ft_strlen(argv) == 1)
+			input->errors++;
+		if (argv[1] == '-' && ft_strlen(argv) == 2)
+		{
+			if (input->options == '0')
+			{
+				input->options = '1';
+				input->dash_input++;
+			}
+			else
+				input->errors++;
+		}	
+		return (0);
+	}
 	if (lstat(argv, buf) != -1)
 		ft_lstat_true(argv, input);
 	else
