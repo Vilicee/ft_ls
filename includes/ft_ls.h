@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:10:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 13:54:41 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 17:36:39 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_no_flags
 typedef struct s_args
 {
 	char			R;
+	char			check_dash;
 	char			l;
 	char			a;
 	char			r;
@@ -66,7 +67,9 @@ typedef struct s_args
 	char			*store;
 	char			*temp;
 	char			file;
-	int				dash_input;
+	int				ret;
+	int				ar;
+	int				dash;
 	int				index;
 	int				i;
 	int				argc;

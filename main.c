@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:05:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 17:09:55 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 17:49:16 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_initialize_variables(t_args *input, t_input_data *data, int ar)
 	input->a = '0';
 	input->check_dash = '0';
 	input->i = 0;
-	input->dash_input = 0;
+	input->dash = 0;
 	input->file = '0';
 	input->index = 0;
 	input->options = '0';
@@ -81,18 +81,16 @@ static int	ft_parse_and_count(char *argv, struct stat *buf, t_args *input)
 	input->ret = ft_check_contents(argv);
 	if (input->ret != 0)
 	{
-		input->check_dash = '1';
 		if (input->ret == 1)
 			input->errors++;
 		if (input->ret == 2)
 		{
-			if (input->options == '0' && input->dash_input == 0)
-				input->dash_input++;
-			else if (input->options == '1' && input->dash_input == 1)
-				input->dash_input++;
+			if (input->check_dash == '0' && input->valid_flag == '0')
+				input->dash++;
 			else
 				input->errors++;
-		}	
+		}
+		input->check_dash = '1';
 		return (0);
 	}
 	if (lstat(argv, buf) != -1)

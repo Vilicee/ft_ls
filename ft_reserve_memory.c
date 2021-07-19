@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:05:30 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/19 17:09:12 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/07/19 17:38:02 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	ft_reserve_memory(t_args *input, t_input_data *data)
 	}
 	input->i = 0;
 	if (input->options == '1' || input->check_dash == '1')
-		return (input->dash_input + 1);
+		return (input->dash + 1);
 	return (1);
 }
