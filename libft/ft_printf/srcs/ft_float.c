@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 11:52:46 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:47:11 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:19:36 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_pre_handlers(t_data *data)
+static void	ft_pre_handlers(t_printf *data)
 {
 	if (data->just_dot == 1 && data->hash == 1)
 	{
@@ -31,7 +31,7 @@ static void	ft_pre_handlers(t_data *data)
 	}
 }
 
-static void	ft_print_float(t_data *data)
+static void	ft_print_float(t_printf *data)
 {
 	if (data->minus == 0)
 		ft_format_float(data);
@@ -53,7 +53,7 @@ static void	ft_print_float(t_data *data)
 		ft_format_float(data);
 }
 
-static void	ft_save_float(t_data *data)
+static void	ft_save_float(t_printf *data)
 {
 	if (data->cap_l == 1)
 		data->f_n = va_arg(data->copy, long double);
@@ -74,7 +74,7 @@ static void	ft_save_float(t_data *data)
 		data->precision = 6;
 }
 
-static void	ft_convert_to_int(t_data *data)
+static void	ft_convert_to_int(t_printf *data)
 {
 	int	precision;
 
@@ -102,7 +102,7 @@ static void	ft_convert_to_int(t_data *data)
 		data->len = data->len + data->precision + 1;
 }
 
-void	ft_float(t_data *data)
+void	ft_float(t_printf *data)
 {
 	ft_reset_n(data);
 	ft_save_float(data);

@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+         #
+#    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/08 18:25:08 by wvaara            #+#    #+#              #
-#    Updated: 2021/07/19 18:06:08 by wvaara           ###   ########.fr        #
+#    Updated: 2021/09/17 17:40:29 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FT_PRINTF = libftprintf.a
+
+FT_DPRINTF = libftdprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -34,11 +36,15 @@ SRCS = ft_putnbr.c ft_putchar.c ft_strlen.c ft_putnbr.c ft_putstr.c \
 	ft_putaddr.c ft_addr_len.c ft_putlonglong.c ft_uns_longlong_len.c \
 	ft_put_uns_longlong.c ft_uns_itoa.c ft_uns_longlong_len.c ft_isnan.c \
 	ft_isinf.c ft_long_long_len.c ft_isupper.c ft_strcjoin.c ft_strndup.c \
-	ft_find_char.c
+	ft_find_char.c ft_strcdup.c ft_check_needle.c ft_get_next_word.c \
+	ft_print_array.c ft_realloc_array.c ft_arrdup.c ft_free_array.c \
+	ft_arrlen.c ft_remove_last_word.c ft_arr_trim.c ft_extract_word.c \
+	ft_skip_white_space.c ft_isspace.c ft_str_char_trim.c ft_put_uns_ll_fd.c \
+	ft_putaddr_fd.c ft_putlonglong_fd.c ft_extract_word_with_char.c
 
 LIBRARY = $(SRCS:.c=.o)
 
-all: $(NAME) $(FT_PRINTF)
+all: $(NAME) $(FT_PRINTF) $(FT_DPRINTF)
 
 $(NAME): $(SRCS)
 	gcc -c $(FLAGS) $(SRCS) -I $(INCLUDES)
@@ -50,13 +56,18 @@ $(SRCS): $(INCLUDES)libft.h
 $(FT_PRINTF):
 	$(MAKE) -C ft_printf
 
+$(FT_DPRINTF):
+	$(MAKE) -C ft_dprintf
+
 clean:
 	rm -f $(LIBRARY)
 	$(MAKE) -C ft_printf clean
+	$(MAKE) -C ft_dprintf clean
 
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C ft_printf fclean
+	$(MAKE) -C ft_dprintf fclean
 
 re: fclean all
 

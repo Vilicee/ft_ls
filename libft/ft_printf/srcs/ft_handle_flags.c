@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:13:19 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:56:44 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:20:16 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_part_two(t_data *data)
+static void	ft_part_two(t_printf *data)
 {
 	if (data->space == '1')
 	{
@@ -39,7 +39,7 @@ static void	ft_part_two(t_data *data)
 	}
 }
 
-static void	ft_part_three(t_data *data)
+static void	ft_part_three(t_printf *data)
 {
 	int	extra;
 
@@ -65,7 +65,7 @@ static void	ft_part_three(t_data *data)
 	}
 }
 
-void	ft_handle_flags(t_data *data)
+void	ft_handle_flags(t_printf *data)
 {
 	if (data->plus == 1 && data->space == '1')
 		data->space = '0';

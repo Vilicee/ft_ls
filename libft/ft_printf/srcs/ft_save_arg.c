@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_arg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:27:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:37:55 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:23:16 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_case_uns_part_two(t_data *data)
+static void	ft_case_uns_part_two(t_printf*data)
 {
 	if (data->h == 1)
 	{
@@ -39,7 +39,7 @@ static void	ft_case_uns_part_two(t_data *data)
 	}
 }
 
-static void	ft_case_unsigned(t_data *data)
+static void	ft_case_unsigned(t_printf*data)
 {
 	if (data->hh == 1)
 	{
@@ -61,7 +61,7 @@ static void	ft_case_unsigned(t_data *data)
 	ft_case_uns_part_two(data);
 }
 
-static void	ft_other_cases_part_two(t_data *data)
+static void	ft_other_cases_part_two(t_printf*data)
 {
 	if (data->ll == 1 || data->l == 1)
 	{
@@ -79,7 +79,7 @@ static void	ft_other_cases_part_two(t_data *data)
 	}
 }
 
-void	ft_save_arg(t_data *data)
+void	ft_save_arg(t_printf*data)
 {
 	if (data->u == 1)
 		ft_case_unsigned(data);

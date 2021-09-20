@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validate_flags.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:04:26 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:40:17 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:24:06 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_skip_flags(const char *format, t_data *data)
+static int	ft_skip_flags(const char *format, t_printf *data)
 {
 	int	error;
 
@@ -28,7 +28,7 @@ static int	ft_skip_flags(const char *format, t_data *data)
 	return (error);
 }
 
-static int	ft_possible_flag(const char *format, t_data *data)
+static int	ft_possible_flag(const char *format, t_printf *data)
 {
 	int	ret;
 
@@ -43,7 +43,7 @@ static int	ft_possible_flag(const char *format, t_data *data)
 	return (ret);
 }
 
-void	ft_validate_flags(const char *format, t_data *data)
+void	ft_validate_flags(const char *format, t_printf *data)
 {
 	int	i;
 

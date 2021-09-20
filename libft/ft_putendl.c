@@ -6,7 +6,7 @@
 /*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 08:48:35 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:01:58 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/08/24 18:00:57 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_putendl(char const *str)
 	if (str)
 	{
 		while (str[i] != '\0')
-		{
 			i++;
-		}
 		write(1, str, i);
 		write(1, "\n", 1);
 	}

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_percentage.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 14:44:35 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:58:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:22:11 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_perc(t_data *data)
+static void	ft_perc(t_printf *data)
 {
 	if (data->minus == 1)
 		write(1, "%", 1);
@@ -30,7 +30,7 @@ static void	ft_perc(t_data *data)
 	data->minus = 0;
 }
 
-void	ft_percentage(t_data *data)
+void	ft_percentage(t_printf *data)
 {
 	if (data->save == 1)
 		ft_perc(data);

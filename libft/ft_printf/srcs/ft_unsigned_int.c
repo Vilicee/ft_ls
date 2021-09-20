@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsigned_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 13:18:15 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:39:52 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:23:56 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_print_int(t_data *data)
+static void	ft_print_int(t_printf *data)
 {
 	if (ft_extras(data) == -1)
 	{
@@ -35,7 +35,7 @@ static void	ft_print_int(t_data *data)
 		ft_put_uns_longlong(data->un);
 }
 
-static void	ft_i(t_data *data)
+static void	ft_i(t_printf *data)
 {
 	if (data->minus == 1)
 	{
@@ -47,7 +47,7 @@ static void	ft_i(t_data *data)
 		ft_print_int(data);
 }
 
-void	ft_unsigned_int(t_data *data)
+void	ft_unsigned_int(t_printf *data)
 {
 	ft_reset_n(data);
 	ft_save_arg(data);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:13:04 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:57:51 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:21:41 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_part_two(t_data *data)
+static void	ft_part_two(t_printf *data)
 {
 	if (data->plus == 1 || data->neg == 1)
 		data->xtra--;
@@ -28,7 +28,7 @@ static void	ft_part_two(t_data *data)
 	}
 }
 
-static void	ft_zero_true(t_data *data)
+static void	ft_zero_true(t_printf *data)
 {
 	if (data->plus == 1 && data->neg == 0)
 	{
@@ -48,7 +48,7 @@ static void	ft_zero_true(t_data *data)
 	}
 }
 
-static void	ft_xtra(t_data *data)
+static void	ft_xtra(t_printf *data)
 {
 	if (data->plus == 1 && data->zero == '0')
 		data->xtra--;
@@ -66,7 +66,7 @@ static void	ft_xtra(t_data *data)
 	}
 }
 
-void	ft_int_format(t_data *data)
+void	ft_int_format(t_printf *data)
 {
 	if (data->hash == 1 && data->d_zero != 1 && data->f == 0)
 	{

@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 14:50:42 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 13:24:37 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:18:23 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_p(t_data *data, void *ptr, int len)
+static void	ft_p(t_printf *data, void *ptr, int len)
 {
 	if (data->minus == 1)
 		ft_putaddr(ptr);
@@ -27,7 +27,7 @@ static void	ft_p(t_data *data, void *ptr, int len)
 	data->minus = 0;
 }
 
-void	ft_address(t_data *data)
+void	ft_address(t_printf *data)
 {
 	void	*ptr;
 	int		len;

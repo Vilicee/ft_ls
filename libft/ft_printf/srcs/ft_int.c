@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:39:44 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 16:45:55 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:21:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_print_int(t_data *data)
+static void	ft_print_int(t_printf *data)
 {
 	if (ft_extras(data) == -1)
 	{
@@ -40,7 +40,7 @@ static void	ft_print_int(t_data *data)
 		ft_putlonglong(data->n);
 }
 
-static void	ft_i(t_data *data)
+static void	ft_i(t_printf *data)
 {
 	if (data->minus == 1)
 	{
@@ -52,7 +52,7 @@ static void	ft_i(t_data *data)
 		ft_print_int(data);
 }
 
-void	ft_int(t_data *data)
+void	ft_int(t_printf *data)
 {
 	ft_reset_n(data);
 	ft_save_arg(data);

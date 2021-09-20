@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_specifiers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:42:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 14:37:28 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:23:33 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_specifiers(const char *format, t_data *data)
+int	ft_specifiers(const char *format, t_printf *data)
 {
 	if (format[data->i] == 'c')
 		return (0);

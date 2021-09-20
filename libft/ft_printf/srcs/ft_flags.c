@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 12:45:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:55:31 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:19:25 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_part_four(const char *format, t_data *data)
+static int	ft_part_four(const char *format, t_printf *data)
 {
 	if (format[data->i] == '.')
 	{
@@ -30,7 +30,7 @@ static int	ft_part_four(const char *format, t_data *data)
 	return (-1);
 }
 
-static int	ft_part_three(const char *format, t_data *data)
+static int	ft_part_three(const char *format, t_printf *data)
 {
 	if (format[data->i] == 'l')
 	{
@@ -52,7 +52,7 @@ static int	ft_part_three(const char *format, t_data *data)
 	return (ft_part_four(format, data));
 }
 
-static int	ft_part_two(const char *format, t_data *data)
+static int	ft_part_two(const char *format, t_printf *data)
 {
 	if (format[data->i] == '#')
 	{
@@ -74,7 +74,7 @@ static int	ft_part_two(const char *format, t_data *data)
 	return (ft_part_three(format, data));
 }
 
-int	ft_flags(const char *format, t_data *data)
+int	ft_flags(const char *format, t_printf *data)
 {
 	if (format[data->i] == ' ')
 	{

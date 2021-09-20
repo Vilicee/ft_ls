@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_character.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 12:42:07 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:14:15 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:18:49 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_c(t_data *data)
+static void	ft_c(t_printf *data)
 {
 	int	temp;
 
@@ -31,7 +31,7 @@ static void	ft_c(t_data *data)
 	data->minus = 0;
 }
 
-void	ft_character(t_data *data)
+void	ft_character(t_printf *data)
 {
 	if (data->save == 1)
 		ft_c(data);

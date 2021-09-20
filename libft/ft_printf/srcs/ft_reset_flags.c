@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reset_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:18:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 12:00:03 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:22:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_reset_the_rest(t_data *data)
+static void	ft_reset_the_rest(t_printf *data)
 {
 	data->base = 16;
 	data->precision = 0;
@@ -30,7 +30,7 @@ static void	ft_reset_the_rest(t_data *data)
 	data->star = '0';
 }
 
-void	ft_reset_flags(t_data *data)
+void	ft_reset_flags(t_printf *data)
 {
 	data->h = 0;
 	data->hh = 0;
